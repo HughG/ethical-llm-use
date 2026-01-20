@@ -17,7 +17,31 @@ This document catalogs LLM datasets and models with high standards for data prov
 *   **Public Domain Expansion:** The Common Corpus project leverages the expiration of copyright (e.g., in the US and Europe) to digitize and tokenize hundreds of billions of words from 19th and early 20th-century literature.
 *   **Open Training Data Research Point:** Distinguish between models that are "Open Weights" (code and weights available) vs. "Open Training" (full data mixtures, filtering logs, and curation recipes published). Future research will focus on models like **OLMo** and **DCLM-Baseline** that allow for full auditability of what the model has "read."
 
-## 2. Models Trained on Ethical Datasets
+## 2. Catalog of Open Training Data Models
+
+While "Open Weights" models (like Llama 3 or Mistral) provide the final model parameters, **"Open Training" (or "Open Science")** models provide the full context of their creation. This includes the data mixtures, curation recipes, filtering logs, and intermediate checkpoints.
+
+| Model Suite | Provider | Key Transparency Artifacts | Unique Feature |
+| :--- | :--- | :--- | :--- |
+| **OLMo** | AI2 | Weights, Data (Dolma), Recipes, Logs | **OLMoTrace:** Tool to map model outputs to specific training documents. |
+| **Pythia** | EleutherAI | 154 Checkpoints, Exact Data Order | **Dataloader Reconstruction:** Tools to replicate the exact training stream. |
+| **DCLM** | DataComp | Dataset (DCLM-Baseline), Recipes | **Quality-First:** Benchmark focusing on systematic data curation and filtering. |
+| **LLM360** | Petuum/MBZUAI | Full Logs, Curation Scripts, All Checkpoints | **360° Transparency:** Complete audit trail from raw data to final weights. |
+
+### Auditability & Reproducibility Mechanisms
+*   **Corpus Tracing (OLMoTrace):** Allows developers to "fact-check" a model by identifying the exact pre-training document (and its license) that informed a specific output.
+*   **Dataloader Replay (Pythia):** Researchers can reconstruct the model's "learning curve" by seeing the data in the exact order the model processed it.
+*   **Curation Recipes (TxT360 / Dolma):** These projects publish the "recipe" for quality—transparently detailing why certain data was filtered (e.g., deduplication thresholds, model-based quality scores from fastText or transformer classifiers).
+
+## 3. Impact on Ethical Use: Reducing "Ethical Debt"
+
+Using a proprietary model with unknown data sources incurs **Ethical Debt**: a latent risk that the model was trained on pirated content, non-consensual data, or biased sources that the developer cannot audit.
+
+*   **Transparency vs. Compliance:** Open Training models allow developers to verify compliance with regulations like the EU AI Act by auditing the training corpus for specific document types or licenses.
+*   **Bias Mitigation:** Because the curation recipes are public, developers can inspect the "weighting" of different data domains (e.g., how much weight is given to legal texts vs. web crawls) to understand potential biases.
+*   **Provable Provenance:** Tools like OLMoTrace provide a "Proof-of-Training-Data," allowing developers to confirm that the model's knowledge is derived from legitimate, transparently sourced data.
+
+## 4. Models Trained on Ethical Datasets
 
 Several "Sovereign AI" initiatives now prioritize legal compliance (EU AI Act) and ethical sourcing.
 
@@ -30,7 +54,7 @@ Several "Sovereign AI" initiatives now prioritize legal compliance (EU AI Act) a
 ### Open-Data Benchmarking
 *   **DCLM Models:** Models trained as part of the DataComp for LLMs initiative serve as transparent baselines for performance comparisons, showing that better filtering can compensate for smaller dataset sizes.
 
-## 3. TRIZ Analysis: The "Utility vs. Ethics" Contradiction
+## 5. TRIZ Analysis: The "Utility vs. Ethics" Contradiction
 
 **Contradiction:** To achieve high reasoning capabilities ("Utility"), models traditionally require the high-density information found in copyrighted books, news, and proprietary code ("Pirated Data"). However, "Ethical" models often rely on public domain or government data, which can be repetitive or lower in informational density.
 
@@ -41,5 +65,5 @@ Several "Sovereign AI" initiatives now prioritize legal compliance (EU AI Act) a
     *   **Instruction Tuning:** Focusing on high-quality instruction datasets (which are often more easily licensed or created with consent) allows smaller "ethical" base models to over-perform on utility benchmarks.
     *   **Domain Specificity:** The transition from "General Purpose" to "Task Specific" models reduces the need for the "entire internet" of data, making ethical sourcing more feasible.
 
-## 4. Summary of Evidence
+## 6. Summary of Evidence
 As of 2026, the release of 2T+ token public domain datasets like **Common Corpus** has proved that it is possible to build competitive, legally compliant LLMs without relying on "murky" data provenance. The focus has shifted from "Max Scale" to "Max Transparency," driven by the regulatory requirements of the EU AI Act and the desire for sovereign, trustworthy AI systems.
