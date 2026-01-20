@@ -21,5 +21,6 @@ HughG NOTE: As research progresses, this plan and the resources.md may be freely
 - [x] **Resource Analysis:** Identify "waste" or "hidden" resources like underutilized local GPUs or off-peak electricity windows.
 
 ## Phase 4: Initial Synthesis
+- [ ] **Proposal: High-Level Solution Architectures:** Draft 3 distinct suggestions (ranging from "Simple/Local" to "Hybrid/Advanced") based on IDE integration and Framework 16 constraints.
 - [ ] **"Green Stack" Draft:** Create a preliminary recommendation for a hardware/software stack for ethical dev work.
 - [ ] **Life Admin Pilot Design:** Define a simple test case for booking a holiday using the most sustainable tools identified.

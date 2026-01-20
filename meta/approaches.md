@@ -22,3 +22,9 @@
 - **Resource Analysis:** Leveraging "hidden" resources (e.g., idle local hardware, surplus renewable energy).
 - **Inventive Principles:** Applying patterns like *Segmentation* (small specialized models) and *Extraction* (removing non-essential data).
 - **Evolutionary Trends:** Mapping the shift from monolithic models to decentralized, efficient architectures.
+
+## 6. Implementation Constraints (The "Pragmatic Developer" Lens)
+- **IDE Integration:** Solutions must be usable within standard development environments (VSCode, JetBrains IntelliJ/PyCharm).
+- **Simplicity & Speed:** Prioritize "Low-Code" or "Config-First" setups for the initial pass. Avoid spending weeks building a custom engine from scratch.
+- **Architectural Extensibility:** Design for a "Plug-and-Play" future. The system should be flexible enough to swap in advanced techniques like Reuven Cohen's *rUv* agents or custom "Green Cloud" API wrappers.
+- **Comparative Ideation:** Before deep implementation, formulate at least three distinct high-level architectural suggestions for user evaluation.
