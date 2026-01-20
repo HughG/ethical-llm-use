@@ -5,8 +5,8 @@ This plan outlines the initial research phase focusing on identifying ethical an
 HughG NOTE: As research progresses, this plan and the resources.md may be freely edited and expanded upon.
 
 ## Phase 1: Landscape Mapping & Resource Expansion
-- [ ] **Expert Audit:** Review publications and projects from identified people (Burggraaf, Cohen, Masraff) for specific green software/agentic techniques.
-- [ ] **Dataset Provenance:** Identify models trained on explicitly licensed or public domain data (e.g., Common Corpus, models from Hugging Face with "Open Data" focus).
+- [x] **Expert Audit:** Review publications and projects from identified people (Burggraaf, Cohen, Masraff) for specific green software/agentic techniques.
+- [x] **Dataset Provenance:** Identify models trained on explicitly licensed or public domain data (e.g., Common Corpus, models from Hugging Face with "Open Data" focus).
 - [ ] **Infrastructure Scanning:** Catalog energy-efficient inference providers (e.g., those using 100% renewable energy or innovative cooling) and local execution tools (Ollama, LM Studio).
 
 ## Phase 2: Technical & Ethical Baseline
