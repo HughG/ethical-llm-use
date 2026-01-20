@@ -7,12 +7,12 @@ HughG NOTE: As research progresses, this plan and the resources.md may be freely
 ## Phase 1: Landscape Mapping & Resource Expansion
 - [x] **Expert Audit:** Review publications and projects from identified people (Burggraaf, Cohen, Masraff) for specific green software/agentic techniques.
 - [x] **Dataset Provenance:** Identify models trained on explicitly licensed or public domain data (e.g., Common Corpus, models from Hugging Face with "Open Data" focus).
-- [ ] **Infrastructure Scanning:** Catalog energy-efficient inference providers (e.g., those using 100% renewable energy or innovative cooling) and local execution tools (Ollama, LM Studio).
+- [x] **Infrastructure Scanning:** Catalog energy-efficient inference providers (e.g., those using 100% renewable energy or innovative cooling) and local execution tools (Ollama, LM Studio).
 
 ## Phase 2: Technical & Ethical Baseline
-- [ ] **Impact Metrics:** Establish baseline energy consumption figures for common operations (Token generation costs, idle power of local vs. cloud).
-- [ ] **Contradiction Definition (TRIZ):** Explicitly document the "Performance vs. Energy" and "Utility vs. Ethics" contradictions.
-- [ ] **Tailpipe.ai Analysis:** Deep dive into tailpipe.ai to understand their carbon tracking methodology for AI.
+- [x] **Impact Metrics:** Establish baseline energy consumption figures for common operations (Token generation costs, idle power of local vs. cloud).
+- [x] **Contradiction Definition (TRIZ):** Explicitly document the "Performance vs. Energy" and "Utility vs. Ethics" contradictions.
+- [x] **Tailpipe.ai Analysis:** Deep dive into tailpipe.ai to understand their carbon tracking methodology for AI.
 
 ## Phase 3: Problem Solving & Ideation
 - [ ] **Ideal Final Result (IFR) Modeling:** Describe what the "Zero-Impact LLM Assistant" looks like based on current tech.
