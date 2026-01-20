@@ -51,7 +51,28 @@ To minimize operational carbon, tasks should be "time-shifted" to coincide with 
     *   **Efficiency**: Designed specifically for low-power AI (e.g., Snapdragon X Elite).
     *   **Current State**: Excellent for always-on background tasks (STT, TTS) but currently limited by low VRAM for large LLM research.
 
-## 4. Synthesis: The "Greenest" Setup Today
+## 4. User Profile: The "Framework Hybrid" Use Case
+
+This section documents the specific hardware constraints and hybrid strategy for the primary user.
+
+### Hardware Specification: Framework 16 Laptop
+*   **CPU**: AMD Ryzen 7840HS (8 cores, 16 threads).
+*   **Integrated Graphics (iGPU)**: Radeon 780M (RDNA 3).
+*   **Optional Expansion**: NVIDIA GeForce RTX 5070 GPU module (available/planned).
+*   **Significance**: The Ryzen 7840HS includes an **AMD Ryzen AI (NPU)**, offering a low-power path for background agent tasks, while the Radeon 780M iGPU can handle modest local inference via Vulkan or ROCm.
+
+### Hybrid Inference Strategy
+To balance the "Utility vs. Energy" contradiction, a hybrid model is proposed:
+1.  **Local (Thin/Edge)**:
+    *   **Tasks**: Initial planning, routing, text summarization, and simple "life admin" tasks.
+    *   **Engine**: Llama.cpp or Ollama running on the Ryzen 7840HS (CPU/iGPU/NPU).
+    *   **Models**: Ultra-compact models (e.g., Phi-3, Gemma-2B, or specialized 7B models).
+2.  **Cloud/Hosted (Thick/Research)**:
+    *   **Tasks**: Complex software engineering, deep research synthesis, and high-context multi-document analysis.
+    *   **Engine**: Green Cloud providers (Green AI Cloud, Exoscale) or a hosted VM with a high-end GPU.
+    *   **Strategy**: Only "burst" to the cloud when local thresholds for accuracy or speed are not met.
+
+## 5. Synthesis: The "Greenest" Setup Today
 
 Based on current benchmarks and provider claims, the hierarchy of green LLM usage is:
 

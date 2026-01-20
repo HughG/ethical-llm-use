@@ -15,6 +15,7 @@ This document catalogs LLM datasets and models with high standards for data prov
 ### Notable Provenance Issues & Resolutions
 *   **The Pile (v1/v2):** Historically faced challenges due to the inclusion of `Books3` (shadow library data). Modern iterations focus on filtering out "shadow" sources in favor of Project Gutenberg and licensed publisher partnerships.
 *   **Public Domain Expansion:** The Common Corpus project leverages the expiration of copyright (e.g., in the US and Europe) to digitize and tokenize hundreds of billions of words from 19th and early 20th-century literature.
+*   **Open Training Data Research Point:** Distinguish between models that are "Open Weights" (code and weights available) vs. "Open Training" (full data mixtures, filtering logs, and curation recipes published). Future research will focus on models like **OLMo** and **DCLM-Baseline** that allow for full auditability of what the model has "read."
 
 ## 2. Models Trained on Ethical Datasets
 

@@ -7,6 +7,7 @@ HughG NOTE: As research progresses, this plan and the resources.md may be freely
 ## Phase 1: Landscape Mapping & Resource Expansion
 - [x] **Expert Audit:** Review publications and projects from identified people (Burggraaf, Cohen, Masraff) for specific green software/agentic techniques.
 - [x] **Dataset Provenance:** Identify models trained on explicitly licensed or public domain data (e.g., Common Corpus, models from Hugging Face with "Open Data" focus).
+- [ ] **Open Training Research:** Deep dive into "Open Training Data" models that publish full data mixtures and curation recipes (e.g., OLMo, Pythia, DCLM-Baseline) to verify reproducibility.
 - [x] **Infrastructure Scanning:** Catalog energy-efficient inference providers (e.g., those using 100% renewable energy or innovative cooling) and local execution tools (Ollama, LM Studio).
 
 ## Phase 2: Technical & Ethical Baseline
