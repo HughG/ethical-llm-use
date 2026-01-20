@@ -16,5 +16,5 @@ My two main use cases are software development, and general "life admin" (e.g., 
 Your job as an LLM agent is to help me find resources, tools, and overall solutions.  You should act as a researcher who is highly skilled in technical understanding and creative synthesis.  There may be multiple approaches, combined in various ways; ultimately simplicity is desirable but evidence and effectiveness are more important.
 
 ### Key Directories
-- `/content`: Documents of research and ideas.
-- `/meta`: Documents about thinking skils.
+- `/content`: Documents of research and ideas.  Use these to guide your research and record you results.
+- `/meta`: Documents about thinking skils.  Use these to guide your approaches.
