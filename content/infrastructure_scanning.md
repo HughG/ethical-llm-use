@@ -55,11 +55,15 @@ To minimize operational carbon, tasks should be "time-shifted" to coincide with 
 
 This section documents the specific hardware constraints and hybrid strategy for the primary user.
 
+### Current System Status
+*   **Operating System**: Windows 11.
+*   **Discrete GPU (dGPU)**: **NONE** (currently absent).
+*   **Future Upgrade Path**: NVIDIA GeForce RTX 5070 (planned/potential).
+
 ### Hardware Specification: Framework 16 Laptop
 *   **CPU**: AMD Ryzen 7840HS (8 cores, 16 threads).
-*   **Integrated Graphics (iGPU)**: Radeon 780M (RDNA 3).
-*   **Optional Expansion**: NVIDIA GeForce RTX 5070 GPU module (available/planned).
-*   **Significance**: The Ryzen 7840HS includes an **AMD Ryzen AI (NPU)**, offering a low-power path for background agent tasks, while the Radeon 780M iGPU can handle modest local inference via Vulkan or ROCm.
+*   **Integrated Graphics (iGPU)**: Radeon 780M (RDNA 3) - **Primary Local Engine**.
+*   **Significance**: On Windows, the Ryzen 7840HS includes an **AMD Ryzen AI (NPU)**, offering a low-power path for background agent tasks via **ONNX Runtime** or **OpenVINO**. The Radeon 780M iGPU is the primary accelerator for LLM inference.
 
 ### Hybrid Inference Strategy
 To balance the "Utility vs. Energy" contradiction, a hybrid model is proposed:
@@ -76,16 +80,17 @@ To balance the "Utility vs. Energy" contradiction, a hybrid model is proposed:
 
 Based on current benchmarks and provider claims, the hierarchy of green LLM usage is:
 
-1.  **GOLD STANDARD: Local Mac Studio (Apple Silicon) during Solar/Wind Peaks.**
-    *   Using **MLX** for 4-bit quantized models.
-    *   Scheduled via **Grid Intensity CLI** or **snag** to match renewable grid peaks.
-    *   *Why*: Zero data transfer carbon, highest tokens-per-watt, and utilizes 100% renewable local energy.
+1.  **GOLD STANDARD: Local Framework 16 (Ryzen AI) during Solar/Wind Peaks.**
+    *   Using **NPU-optimized** models (1B-3B) for background agents.
+    *   Scheduled via **Windows Task Scheduler** and **Carbon Aware SDK** (via PowerShell) to match renewable grid peaks.
+    *   *Why*: Zero data transfer carbon, utilizes low-power NPU silicon, and 100% renewable local energy.
 
 2.  **SILVER STANDARD: Specialized Green Cloud (e.g., Green AI Cloud).**
-    *   *Why*: Utilizes industrial-scale heat recycling and 100% renewable energy that may not be available to residential users.
+    *   *Why*: Utilizes industrial-scale heat recycling and 100% renewable energy that may not be available to residential users. Ideal for "thick" research tasks that exceed iGPU capacity.
 
-3.  **BRONZE STANDARD: Quantized Local Inference on NVIDIA (Power-Limited).**
-    *   Using **Llama.cpp** with a power-limited GPU (undervolting) to improve efficiency by 20-30% with minimal performance loss.
+3.  **BRONZE STANDARD: Quantized Local Inference on Radeon 780M iGPU.**
+    *   Using **LM Studio (DirectML/Vulkan)** with **IQ4_XS** GGUF models.
+    *   Applying Windows "Efficiency Mode" to background workers to improve power-per-token metrics.
 
 ---
 *Date: 2026-01-20*

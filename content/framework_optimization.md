@@ -70,7 +70,18 @@ To minimize the carbon footprint of local compute:
 
 ---
 
-## 4. Implementation Recommendations
-1.  **Software Stack:** Use **Ollama** with `ROCm` (Linux) or **Ryzen AI Software** (Windows) for iGPU/NPU acceleration.
-2.  **Automation:** Implement a local script using the `Carbon Aware SDK` to delay heavy local fine-tuning or batch inference until "Green" windows.
-3.  **Quantization:** Use `Q4_K_M` or `IQ4_XS` GGUF formats to balance 7B model quality with the 7840HS's memory bandwidth limits.
+## 4. Implementation Recommendations (Windows-Centric)
+
+The following stack is recommended for the Framework 16 on **Windows 11** without a dGPU:
+
+1.  **Local Inference Engine:** 
+    *   **LM Studio (Windows):** Preferred for ease of use; natively supports GGUF and uses **DirectML** or **Vulkan** to accelerate on the Radeon 780M iGPU.
+    *   **Ollama (Windows):** Good for CLI/API-driven workflows; uses the CPU and iGPU.
+    *   **AMD Ryzen AI Software:** Essential for utilizing the NPU for background tasks (e.g., using specialized Quantized models via ONNX).
+2.  **Scheduling & Carbon Awareness:**
+    *   **Carbon Aware SDK (C# / .NET):** Best for Windows integration. Can be queried via PowerShell to check grid status before starting intensive local tasks.
+    *   **Windows Task Scheduler:** Use "On Idle" or "Power Connected" triggers, combined with grid-intensity scripts, to run background indexing or RAG tasks.
+3.  **Power Management:**
+    *   **Windows "Efficiency Mode":** Manually assign background LLM processes to efficiency cores to prevent fan noise and high power spikes.
+    *   **Framework Power Profiles:** Switch to "Power Efficiency" when running background agents to maximize battery-to-token efficiency.
+4.  **Quantization:** Use `Q4_K_M` GGUF formats. For the 780M iGPU, **IQ4_XS** is a strong candidate for 7B models to fit within the shared system RAM (typically 16-32GB) while maintaining speed.
