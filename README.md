@@ -1,4 +1,4 @@
-# Green LLM Usage
+# Ethical LLM Use
 
 This is a text-based (non-academic) research project, rather than a software project.
 
